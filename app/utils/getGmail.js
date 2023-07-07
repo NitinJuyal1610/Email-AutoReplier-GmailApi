@@ -3,7 +3,12 @@ import authorize from './authenticate.js';
 
 // get Gmail Service
 export const getGmailService = async () => {
-  const auth = await authorize();
-  const gmail = google.gmail({ version: 'v1', auth });
-  return gmail;
+  try {
+    const auth = await authorize();
+    console.log('Auth Successfull');
+    const gmail = google.gmail({ version: 'v1', auth });
+    return gmail;
+  } catch (err) {
+    console.log(err);
+  }
 };
