@@ -37,11 +37,8 @@ export const setLabel = async (thread) => {
 
     // If no user labels exist, create a new one
     if (userLabels.length == 0) {
-      console.log('creating a label');
       userLabels = await createNewLabel();
     }
-
-    console.log(userLabels, '-0-');
 
     await gmail.users.threads.modify({
       id: thread.id,
